@@ -1,0 +1,67 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+.cell-path {
+  @apply !bg-blue-600 text-white;
+}
+
+.cell-visited {
+  animation-name: animVisited;
+  animation-duration: 1.5s;
+  animation-timing-function: ease-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+@keyframes animVisited {
+  0% {
+    transform: scale(0.3);
+    @apply bg-amber-600;
+  }
+  50% {
+    background-color: rgba(111, 111, 111, 0.75);
+    @apply bg-amber-400;
+  }
+  75% {
+    transform: scale(1.2);
+    @apply bg-amber-300;
+  }
+  100% {
+    transform: scale(1);
+    @apply bg-amber-200;
+  }
+}
+
+.wall-animate {
+  animation-name: animScale;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in-out;
+  animation-delay: 0;
+  animation-direction: alternate;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+@keyframes animScale {
+  0% {
+    transform: scale(0.2);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
