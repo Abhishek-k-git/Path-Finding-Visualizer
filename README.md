@@ -1,6 +1,8 @@
-#### Path Finding Visualizer: Explore Algorithms in Action!
+### Path Finding Visualizer: Explore Algorithms in Action!
 
-**Demo:** _https://<your-project-live-demo-url>_
+**Demo:** https://algo-path-finding-visualizer.netlify.app/
+
+![poster](https://github.com/Abhishek-k-git/Path-Finding-Visualizer/blob/main/public/assets/cover.png)
 
 Intrigued by pathfinding algorithms? This interactive web application brings **Dijkstra's**, **Depth-First Search (DFS)**, and **Breadth-First Search (BFS)** algorithms to life, letting you visualize their journey on customizable grids. Whether you're a seasoned developer, a curious student, or simply fascinated by problem-solving, this tool is for you!
 
