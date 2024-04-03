@@ -11,8 +11,28 @@
   font-family: "Roboto", sans-serif;
 }
 
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  @apply bg-zinc-950 bg-opacity-20;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-950 bg-opacity-40;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-zinc-950 bg-opacity-50;
+}
+
 .cell-path {
-  @apply !bg-blue-600 text-white;
+  @apply !bg-green-500 text-white;
 }
 
 .cell-visited {
@@ -28,19 +48,19 @@
 @keyframes animVisited {
   0% {
     transform: scale(0.3);
-    @apply bg-amber-600;
+    @apply bg-red-600;
   }
   50% {
     background-color: rgba(111, 111, 111, 0.75);
-    @apply bg-amber-400;
+    @apply bg-red-500;
   }
   75% {
     transform: scale(1.2);
-    @apply bg-amber-300;
+    @apply bg-red-400;
   }
   100% {
     transform: scale(1);
-    @apply bg-amber-200;
+    @apply bg-red-500;
   }
 }
 

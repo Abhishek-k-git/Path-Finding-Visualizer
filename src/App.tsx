@@ -1,10 +1,10 @@
-import Grid from "./components/Grid.tsx";
+import Main from "./components/Main.tsx";
 
 const App = () => {
   return (
-    <>
-      <Grid />
-    </>
+    <div className="w-full h-screen overflow-hidden bg-zinc-800">
+      <Main />
+    </div>
   );
 };
 

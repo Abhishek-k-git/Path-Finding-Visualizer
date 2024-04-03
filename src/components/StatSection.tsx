@@ -13,16 +13,14 @@ const StatSection: React.FC<{
   }[];
 }> = ({ stats }) => {
   return (
-    <ul role="list" className="flex flex-wrap gap-2">
+    <ul role="list" className="flex flex-row items-center justify-evenly">
       {stats.map((stat) => (
         <li
           key={stat.name}
-          className="text-xs p-2 bg-indigo-500 text-white rounded-full flex flex-row items-center gap-2"
+          className="text-xs gap-1 p-2 flex flex-col items-center justify-center"
         >
           <span>{stat.name}</span>
-          <span className="text-xs px-2 rounded-full bg-indigo-100 text-indigo-700">
-            {stat.data}
-          </span>
+          <span className="text-xs text-indigo-500">{stat.data}</span>
         </li>
       ))}
     </ul>
