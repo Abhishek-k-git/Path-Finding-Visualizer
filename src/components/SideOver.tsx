@@ -13,15 +13,17 @@ const getAlgoInfo = (type: algorithm | null) => {
         title: "Dijkstra's algorithm",
         description: (
           <>
-            <strong>Dijkstra's algorithm</strong> is an algorithm for finding
-            the shortest paths between nodes in a weighted graph, which may
-            represent, for example, road networks. It was conceived by computer
-            scientist <strong>Edsger W. Dijkstra</strong> in{" "}
-            <strong>1956</strong> and published three years later. It picks the
-            unvisited vertex with the lowest distance, calculates the distance
-            through it to each unvisited neighbor, and updates the neighbor's
-            distance if smaller. Mark visited (set to green) when done with
-            neighbors.
+            <p>
+              <strong>Dijkstra's algorithm</strong> is an algorithm for finding
+              the shortest paths between nodes in a weighted graph, which may
+              represent, for example, road networks. It was conceived by
+              computer scientist <strong>Edsger W. Dijkstra</strong> in{" "}
+              <strong>1956</strong> and published three years later. It picks
+              the unvisited vertex with the lowest distance, calculates the
+              distance through it to each unvisited neighbor, and updates the
+              neighbor's distance if smaller. Mark visited (set to green) when
+              done with neighbors.
+            </p>
           </>
         ),
         guaranteedShortedPath: true,
@@ -33,15 +35,19 @@ const getAlgoInfo = (type: algorithm | null) => {
         title: "Breadth-first Search algorithm",
         description: (
           <>
-            A standard <strong>BFS</strong> implementation puts each vertex of
-            the graph into one of two categories: <br />
+            <p>
+              A standard <strong>BFS</strong> implementation puts each vertex of
+              the graph into one of two categories:
+            </p>
             <ul className="m-2 ml-6">
               <li className="list-disc">Visited</li>
               <li className="list-disc">Not Visited</li>
             </ul>
             <br />
-            The purpose of the algorithm is to mark each vertex as visited while
-            avoiding cycles. The algorithm works as follows: <br />
+            <p>
+              The purpose of the algorithm is to mark each vertex as visited
+              while avoiding cycles. The algorithm works as follows:
+            </p>
             <ul className="ml-6 mt-2">
               <li className="list-decimal">
                 Start by putting any one of the graph's vertices at the back of
@@ -59,9 +65,11 @@ const getAlgoInfo = (type: algorithm | null) => {
               </li>
             </ul>
             <br />
-            The graph might have two different disconnected parts so to make
-            sure that we cover every vertex, we can also run the BFS algorithm
-            on every node
+            <p>
+              The graph might have two different disconnected parts so to make
+              sure that we cover every vertex, we can also run the BFS algorithm
+              on every node
+            </p>
           </>
         ),
         guaranteedShortedPath: true,
@@ -73,18 +81,22 @@ const getAlgoInfo = (type: algorithm | null) => {
         title: "Depth-first Search algorithm",
         description: (
           <>
-            <strong>Depth first Search</strong> is a recursive algorithm for
-            searching all the vertices of a graph or tree data structure.
-            Traversal means visiting all the nodes of a graph. <br /> A standard{" "}
-            <strong>DFS</strong> implementation puts each vertex of the graph
-            into one of two categories: <br />
+            <p>
+              <strong>Depth first Search</strong> is a recursive algorithm for
+              searching all the vertices of a graph or tree data structure.
+              Traversal means visiting all the nodes of a graph. <br /> A
+              standard <strong>DFS</strong> implementation puts each vertex of
+              the graph into one of two categories:
+            </p>
             <ul className="m-2 ml-6">
               <li className="list-disc">Visited</li>
               <li className="list-disc">Not Visited</li>
             </ul>
             <br />
-            The purpose of the algorithm is to mark each vertex as visited while
-            avoiding cycles. The algorithm works as follows: <br />
+            <p>
+              The purpose of the algorithm is to mark each vertex as visited
+              while avoiding cycles. The algorithm works as follows:
+            </p>
             <ul className="ml-6 mt-2">
               <li className="list-decimal">
                 Start by putting any one of the graph's vertices on top of a
