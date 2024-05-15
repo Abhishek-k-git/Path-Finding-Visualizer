@@ -136,7 +136,7 @@ export const SideOver: React.FC<props> = ({ algo, onClose }) => {
 
   return (
     <Transition.Root show={!!algorithm} as={Fragment}>
-      <Dialog as="div" className="relative z-[100]" onClose={onClose}>
+      <Dialog as="div" className="relative z-[600]" onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
