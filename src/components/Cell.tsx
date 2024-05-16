@@ -20,16 +20,20 @@ const Cell: React.FC<cellInterface & HTMLAttributes<HTMLDivElement>> = ({
   return (
     <div
       {...props}
-      className={`cell lg:w-5 w-4 inline-flex justify-center items-center aspect-square border-[0.1px] border-dotted border-zinc-600 ${
-        isStartPoint ? "!bg-green-500 text-green-50" : ""
-      } ${isEndPoint ? "!bg-indigo-500 text-indigo-50" : ""} ${
-        isWall ? "!bg-zinc-950 !bg-opacity-50 wall-animate" : ""
-      }`}
+      className={`cell w-8 inline-flex justify-center items-center aspect-square border border-dashed border-zinc-200 ${
+        isStartPoint
+          ? "!bg-orange-400 rounded-full border-none animate-pulse text-white"
+          : ""
+      } ${
+        isEndPoint
+          ? "!bg-red-600 rounded-full animate-bounce border-none text-white"
+          : ""
+      } ${isWall ? "!bg-zinc-400 wall-animate border-none" : ""}`}
     >
       {isStartPoint ? (
-        <RiMapPin5Line className="h-4 w-4 font-bold" />
+        <RiMapPin5Line className="h-4 w-4" />
       ) : isEndPoint ? (
-        <AiOutlineTrophy className="h-4 w-4 font-bold" />
+        <AiOutlineTrophy className="h-4 w-4" />
       ) : null}
     </div>
   );

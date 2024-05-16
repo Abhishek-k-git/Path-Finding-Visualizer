@@ -12,19 +12,17 @@ const getAlgoInfo = (type: algorithm | null) => {
       return {
         title: "Dijkstra's algorithm",
         description: (
-          <>
-            <p>
-              <strong>Dijkstra's algorithm</strong> is an algorithm for finding
-              the shortest paths between nodes in a weighted graph, which may
-              represent, for example, road networks. It was conceived by
-              computer scientist <strong>Edsger W. Dijkstra</strong> in{" "}
-              <strong>1956</strong> and published three years later. It picks
-              the unvisited vertex with the lowest distance, calculates the
-              distance through it to each unvisited neighbor, and updates the
-              neighbor's distance if smaller. Mark visited (set to green) when
-              done with neighbors.
-            </p>
-          </>
+          <p className="mt-2">
+            <strong>Dijkstra's algorithm</strong> is an algorithm for finding
+            the shortest paths between nodes in a weighted graph, which may
+            represent, for example, road networks. It was conceived by computer
+            scientist <strong>Edsger W. Dijkstra</strong> in{" "}
+            <strong>1956</strong> and published three years later. It picks the
+            unvisited vertex with the lowest distance, calculates the distance
+            through it to each unvisited neighbor, and updates the neighbor's
+            distance if smaller. Mark visited (set to green) when done with
+            neighbors.
+          </p>
         ),
         guaranteedShortedPath: true,
         referenceLink: `https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm`,
@@ -34,21 +32,20 @@ const getAlgoInfo = (type: algorithm | null) => {
       return {
         title: "Breadth-first Search algorithm",
         description: (
-          <>
-            <p>
+          <div>
+            <p className="mt-2">
               A standard <strong>BFS</strong> implementation puts each vertex of
               the graph into one of two categories:
             </p>
-            <ul className="m-2 ml-6">
+            <ul className="px-8 py-2 list-outside">
               <li className="list-disc">Visited</li>
               <li className="list-disc">Not Visited</li>
             </ul>
-            <br />
-            <p>
+            <p className="mt-2">
               The purpose of the algorithm is to mark each vertex as visited
               while avoiding cycles. The algorithm works as follows:
             </p>
-            <ul className="ml-6 mt-2">
+            <ul className="px-8 py-2 list-outside">
               <li className="list-decimal">
                 Start by putting any one of the graph's vertices at the back of
                 a queue.
@@ -64,13 +61,12 @@ const getAlgoInfo = (type: algorithm | null) => {
                 Keep repeating steps 2 and 3 until the queue is empty.
               </li>
             </ul>
-            <br />
-            <p>
+            <p className="mt-2">
               The graph might have two different disconnected parts so to make
               sure that we cover every vertex, we can also run the BFS algorithm
               on every node
             </p>
-          </>
+          </div>
         ),
         guaranteedShortedPath: true,
         referenceLink: `https://en.wikipedia.org/wiki/Breadth-first_search`,
@@ -80,24 +76,25 @@ const getAlgoInfo = (type: algorithm | null) => {
       return {
         title: "Depth-first Search algorithm",
         description: (
-          <>
-            <p>
+          <div>
+            <p className="mt-2">
               <strong>Depth first Search</strong> is a recursive algorithm for
               searching all the vertices of a graph or tree data structure.
-              Traversal means visiting all the nodes of a graph. <br /> A
-              standard <strong>DFS</strong> implementation puts each vertex of
+              Traversal means visiting all the nodes of a graph.
+            </p>
+            <p className="mt-2">
+              A standard <strong>DFS</strong> implementation puts each vertex of
               the graph into one of two categories:
             </p>
-            <ul className="m-2 ml-6">
+            <ul className="px-8 py-2 list-outside">
               <li className="list-disc">Visited</li>
               <li className="list-disc">Not Visited</li>
             </ul>
-            <br />
-            <p>
+            <p className="mt-2">
               The purpose of the algorithm is to mark each vertex as visited
               while avoiding cycles. The algorithm works as follows:
             </p>
-            <ul className="ml-6 mt-2">
+            <ul className="px-8 py-2 list-outside">
               <li className="list-decimal">
                 Start by putting any one of the graph's vertices on top of a
                 stack.
@@ -113,7 +110,7 @@ const getAlgoInfo = (type: algorithm | null) => {
                 Keep repeating steps 2 and 3 until the stack is empty.
               </li>
             </ul>
-          </>
+          </div>
         ),
         guaranteedShortedPath: false,
         referenceLink: `https://en.wikipedia.org/wiki/Depth-first_search`,
@@ -136,7 +133,7 @@ export const SideOver: React.FC<props> = ({ algo, onClose }) => {
 
   return (
     <Transition.Root show={!!algorithm} as={Fragment}>
-      <Dialog as="div" className="relative z-[600]" onClose={onClose}>
+      <Dialog as="div" className="relative z-[1000]" onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="ease-in-out duration-500"
@@ -146,11 +143,11 @@ export const SideOver: React.FC<props> = ({ algo, onClose }) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-gray-900 bg-opacity-30 transition-opacity" />
+          <div className="fixed inset-0 bg-black bg-opacity-65 transition-opacity" />
         </Transition.Child>
         <div className="fixed inset-0 overflow-hidden">
           <div className="absolute inset-0 overflow-hidden">
-            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
+            <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-8">
               <Transition.Child
                 as={Fragment}
                 enter="transform transition ease-in-out duration-500 sm:duration-700"
@@ -163,89 +160,67 @@ export const SideOver: React.FC<props> = ({ algo, onClose }) => {
                 <Dialog.Panel className="pointer-events-auto w-screen max-w-md">
                   <div className="flex h-full flex-col overflow-y-scroll bg-white shadow-xl">
                     <div className="px-4 py-6 sm:px-6">
-                      <div className="flex items-start justify-between">
+                      {/* menu top items */}
+                      <div className="flex items-start justify-between text-zinc-500">
                         <h2
                           id="slide-over-heading"
-                          className="text-lg font-medium text-gray-900"
+                          className="text-lg font-medium"
                         >
                           About algorithm
                         </h2>
-                        <div className="ml-3 flex h-7 items-center">
+                        <div className="flex items-center">
                           <button
                             type="button"
-                            className="rounded-md bg-white text-gray-400 hover:text-gray-500 focus:ring-2 focus:ring-indigo-500"
+                            className="hover:text-black"
                             onClick={onClose}
                           >
                             <span className="sr-only">Close panel</span>
-                            <IoClose className="h-6 w-6" aria-hidden="true" />
+                            <IoClose className="h-8 w-8" aria-hidden="true" />
                           </button>
                         </div>
                       </div>
                     </div>
-                    {/* Main */}
+                    {/* content */}
                     <div>
-                      <div className="pb-1 sm:pb-6">
-                        <div>
-                          <div className="relative h-40 sm:h-56">
-                            <img
-                              className="absolute h-full w-full object-contain"
-                              src={info.gif}
-                              alt=""
-                            />
-                          </div>
-                          <div className="mt-6 px-4 sm:mt-8 sm:flex sm:items-end sm:px-6">
-                            <div className="sm:flex-1">
-                              <div>
-                                <div className="flex items-center">
-                                  <h3 className="text-xl font-bold text-gray-900 sm:text-2xl">
-                                    {info?.title}
-                                  </h3>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                      {/* image */}
+                      <div className="w-full flex items-center justify-center">
+                        <img className="w-3/5 h-auto" src={info.gif} alt="" />
                       </div>
-                      <div className="px-4 pt-5 pb-5 sm:px-0 sm:pt-0">
-                        <dl className="space-y-8 px-4 sm:space-y-6 sm:px-6">
-                          <div>
-                            <dt className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">
-                              Summary
-                            </dt>
-                            <dd className="mt-1 text-sm text-gray-900 sm:col-span-2">
-                              <p>{info?.description}</p>
-                            </dd>
-                          </div>
-                          <div>
-                            <p className="block text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">
-                              Shortest path
-                            </p>
-                            <span
-                              className={classNames(
-                                info.guaranteedShortedPath
-                                  ? "bg-green-100 text-green-800"
-                                  : "bg-red-100 text-red-800",
-                                "inline-flex mt-2 items-center rounded-full px-3.5 py-1.5 text-xs font-medium"
-                              )}
-                            >
-                              {info?.guaranteedShortedPath
-                                ? "Guaranteed"
-                                : "Not guaranteed"}
-                            </span>
-                          </div>
-                          <div>
-                            <p className="text-sm font-medium text-gray-500 sm:w-40 sm:flex-shrink-0">
-                              Website
-                            </p>
-                            <a
-                              href={info.referenceLink}
-                              target="__blank"
-                              className="text-indigo-700 inline-flex items-center font-medium underline mt-1 text-sm sm:col-span-2"
-                            >
-                              <FaLink className="h-4 w-4 mr-2" /> reference link
-                            </a>
-                          </div>
-                        </dl>
+                      {/* title */}
+                      <h1 className="text-xl font-bold text-black px-6 py-4">
+                        {info.title}
+                      </h1>
+                      {/* details */}
+                      <dl className="text-sm text-black px-6">
+                        <dt className="text-zinc-500">Summary</dt>
+                        <dd>{info?.description}</dd>
+                      </dl>
+                      {/* others */}
+                      <div className="px-6 py-4 text-sm">
+                        <span className="text-zinc-800">Shortest path</span>
+                        <span
+                          className={classNames(
+                            info.guaranteedShortedPath
+                              ? "bg-green-500"
+                              : "bg-red-500",
+                            "inline-block px-4 py-1 mx-4 font-semibold rounded-full text-white"
+                          )}
+                        >
+                          {info?.guaranteedShortedPath
+                            ? "Guaranteed"
+                            : "Not guaranteed"}
+                        </span>
+                      </div>
+                      <div className="px-6 mb-8 text-sm flex gap-2 items-center">
+                        <span className="text-zinc-800">Read more</span>
+                        <a
+                          href={info.referenceLink}
+                          target="__blank"
+                          className="text-orange-500 inline-flex items-center font-medium underline mt-1 text-sm sm:col-span-2"
+                        >
+                          <FaLink className="h-4 w-4" />
+                          webpage url
+                        </a>
                       </div>
                     </div>
                   </div>

@@ -20,35 +20,24 @@ const Select: React.FC<{
     >
       {({ open }) => (
         <>
-          <div className="relative z-[600]">
-            <Listbox.Button className="relative text-sm flex items-center justify-between w-full px-2 py-2 cursor-default focus:outline-none">
-              <span
-                className={classNames(
-                  selectedAlgo ? "text-white" : "text-indigo-50",
-                  "block truncate text-xs"
-                )}
-              >
-                {selectedAlgo?.name || "Choose an algorithm"}
+          <div className="text-sm h-full flex items-center text-black">
+            <Listbox.Button className="relative flex items-center justify-between w-full p-2 cursor-pointer focus:outline-none">
+              <span className="block truncate">
+                {selectedAlgo?.name || "Select Algorithm"}
               </span>
-              <span className="pointer-events-none absolute inset-y-0 right-0 flex items-center pr-2">
-                <LuChevronsUpDown
-                  className={classNames(
-                    selectedAlgo ? "text-white" : "text-indigo-50",
-                    "h-4 w-4"
-                  )}
-                  aria-hidden="true"
-                />
+              <span>
+                <LuChevronsUpDown className="h-4 w-4" aria-hidden="true" />
               </span>
             </Listbox.Button>
 
             <Transition
               show={open}
               as={Fragment}
-              leave="transition ease-in duration-100"
+              leave="transition ease-in-out duration-100"
               leaveFrom="opacity-100"
               leaveTo="opacity-0"
             >
-              <Listbox.Options className="absolute left-1/2 top-full -translate-x-1/2 text-sm max-h-60 w-full overflow-auto rounded-lg bg-white px-2 py-4 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+              <Listbox.Options className="absolute left-1/2 -translate-x-1/2 -top-[300%] md:top-full max-h-60 w-full overflow-auto rounded-3xl bg-white px-2 py-4 shadow-lg">
                 {[
                   {
                     name: "Dijkstra's algorithm",
@@ -67,8 +56,8 @@ const Select: React.FC<{
                     key={algo.type}
                     className={({ active }) =>
                       classNames(
-                        active ? "text-white bg-indigo-500" : "text-gray-600",
-                        "relative cursor-default select-none py-2 rounded-md w-full flex flex-row items-center justify-center gap-2"
+                        active ? "bg-zinc-100" : "",
+                        "cursor-default select-none py-2 my-1 rounded-2xl w-full flex flex-row items-center justify-center gap-2"
                       )
                     }
                     value={algo}
@@ -89,11 +78,11 @@ const Select: React.FC<{
                         {algo.type === selectedAlgo?.type ? (
                           <span
                             className={classNames(
-                              active ? "text-white" : "text-indigo-500",
+                              active ? "text-black" : "text-orange-400",
                               ""
                             )}
                           >
-                            <FaCheck className="h-3 w-3" aria-hidden="true" />
+                            <FaCheck className="h-4 w-4" aria-hidden="true" />
                           </span>
                         ) : null}
                       </>

@@ -5,7 +5,7 @@
 Fascinated by pathfinding and how algorithms tackle navigation problems? This interactive web application brings Dijkstra's, Depth-First Search (DFS), and Breadth-First Search (BFS) algorithms to life in a visually engaging way. Experiment with customizable grids, visualize the algorithms' inner workings, and unlock the magic of pathfinding, whether you're a seasoned developer, a curious student, or simply intrigued by problem-solving.
 
 | ![poster](./public/assets/poster1.png) | ![poster](./public/assets/poster2.png) |
-|--|--|
+| -------------------------------------- | -------------------------------------- |
 | ![poster](./public/assets/poster3.png) | ![poster](./public/assets/poster4.png) |
 
 ##### Why You'll Love This Visualizer:
