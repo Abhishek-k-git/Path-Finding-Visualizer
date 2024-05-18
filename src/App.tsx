@@ -193,8 +193,8 @@ const App = () => {
     let visitedCells: cellInterface[] = [];
     switch (type) {
       case algorithm.DIJKSTRA:
-        let [dCells, DTime] = Dijkstra(grid, start, end) || [];
-        visitedCells = dCells || [];
+        let [DCells, DTime] = Dijkstra(grid, start, end) || [];
+        visitedCells = DCells || [];
         setTimeTaken(DTime || 0);
         break;
       case algorithm.DFS:
