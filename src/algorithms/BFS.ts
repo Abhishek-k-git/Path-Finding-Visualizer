@@ -9,13 +9,13 @@ export function BFS(
   let startTime = Date.now();
   let endTime;
 
-  let unvisitedCellsQueue: cellInterface[] = [startCell];
+  let unvisitedCellsQueue: cellInterface[] = [startCell]; // FIFO queue
   let visitedCells: cellInterface[] = [];
 
   startCell.isVisited = true;
 
   while (unvisitedCellsQueue.length > 0) {
-    let currentCell = unvisitedCellsQueue.pop(); // for BFS we want neighbors to get traversed first so we pop() the item which we put first
+    let currentCell = unvisitedCellsQueue.pop();
 
     if (!currentCell) {
       endTime = Date.now();
@@ -24,7 +24,7 @@ export function BFS(
 
     const { col, row, cellNumber, isVisited } = currentCell;
 
-    if (cellNumber !== startCell.cellNumber && isVisited) continue; // we don't need to operate on start cell
+    if (cellNumber !== startCell.cellNumber && isVisited) continue;
 
     visitedCells.push(currentCell);
 
@@ -35,6 +35,7 @@ export function BFS(
     }
 
     if (
+      // right
       col + 1 < grid[0].length &&
       !grid[row][col + 1].isWall &&
       !grid[row][col + 1].isVisited
@@ -45,6 +46,7 @@ export function BFS(
     }
 
     if (
+      // top
       row - 1 >= 0 &&
       !grid[row - 1][col].isWall &&
       !grid[row - 1][col].isVisited
@@ -55,6 +57,7 @@ export function BFS(
     }
 
     if (
+      // bottom
       row + 1 < grid.length &&
       !grid[row + 1][col].isWall &&
       !grid[row + 1][col].isVisited
@@ -65,6 +68,7 @@ export function BFS(
     }
 
     if (
+      // left
       col - 1 >= 0 &&
       !grid[row][col - 1].isWall &&
       !grid[row][col - 1].isVisited

@@ -1,4 +1,4 @@
-import { cellInterface } from "../interfaces/index.ts";
+import { cellInterface, gridSize } from "../interfaces/index.ts";
 
 export const initCell: cellInterface = {
   cellNumber: 0,
@@ -20,8 +20,8 @@ export const getCellObj = (
 ): cellInterface[][] => {
   let gridCells: cellInterface[][] = grid || [];
   let cellNumber: number = 0;
-  let rowNum: number = 30;
-  let colNum: number = 52;
+  let rowNum: number = gridSize.ROWS;
+  let colNum: number = gridSize.COLS;
 
   for (let indRow = 0; indRow < rowNum; indRow++) {
     let currRow: cellInterface[] = [];
@@ -49,7 +49,7 @@ export const getCellObj = (
 
 export const getCells = (grid: cellInterface[][]) => {
   let cellsArr: cellInterface[] = [];
-  [...grid].forEach((row) => {
+  grid.forEach((row) => {
     row.forEach((cell) => {
       cellsArr.push(cell);
     });
@@ -78,7 +78,7 @@ export const classNames = (...classes: string[]) => {
 
 export const generateOddRand = (numArr: number[]) => {
   let max = numArr.length - 1;
-  let randNum = Math.floor(Math.random() * (max / 2));
+  let randNum = Math.floor(Math.random() * max);
 
   if (randNum % 2 === 0) {
     if (randNum === max) randNum -= 1;
@@ -88,7 +88,7 @@ export const generateOddRand = (numArr: number[]) => {
 };
 
 export const generateRandWithin = (maxVal: number) => {
-  let randNum = Math.floor(Math.random() * (maxVal / 2));
+  let randNum = Math.floor(Math.random() * maxVal);
   if (randNum % 2 !== 0) {
     if (randNum === maxVal) randNum -= 1;
     else randNum += 1;
@@ -115,7 +115,7 @@ const addWalls = (
   finishNode: cellInterface | null
 ) => {
   let isStartFinish = false;
-  let cellToBeWall = []; // keeping an array to add gaps once we push into it
+  let cellToBeWall = [];
 
   if (direction === "up-down") {
     if (vertical.length === 2) return;
@@ -174,8 +174,6 @@ const setRecursiveWalls = (
     num = generateOddRand(vertical);
   }
 
-  // recursive part where the approach to
-  // start vertical or horizontal is dependent on direction variable
   if (direction === "up-down") {
     addWalls(grid, direction, num, horizontal, vertical, startNode, finishNode);
     setRecursiveWalls(

@@ -1,3 +1,8 @@
+export enum gridSize {
+  ROWS = 30,
+  COLS = 52,
+}
+
 export enum algorithm {
   DIJKSTRA = "DIJKSTRA",
   BFS = "BFS",

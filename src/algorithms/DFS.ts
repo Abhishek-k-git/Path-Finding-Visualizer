@@ -8,13 +8,13 @@ export const DFS = (
 ): [cellInterface[], number] => {
   let startTime = Date.now();
   let endTime;
-  let unvisitedCellsStack: cellInterface[] = [startCell];
+  let unvisitedCellsStack: cellInterface[] = [startCell]; //LIFO
   let visitedCells: cellInterface[] = [];
 
   startCell.isVisited = true;
 
   while (unvisitedCellsStack.length > 0) {
-    let currentCell = unvisitedCellsStack.shift(); // for DFS we want go in the same direction till we hit the border so we access item which is added last in the array
+    let currentCell = unvisitedCellsStack.shift();
 
     if (!currentCell) {
       endTime = Date.now();
@@ -34,6 +34,7 @@ export const DFS = (
     }
 
     if (
+      // right
       col + 1 < grid[0].length &&
       !grid[row][col + 1].isWall &&
       !grid[row][col + 1].isVisited
@@ -44,6 +45,18 @@ export const DFS = (
     }
 
     if (
+      //top
+      row - 1 >= 0 &&
+      !grid[row - 1][col].isWall &&
+      !grid[row - 1][col].isVisited
+    ) {
+      grid[row - 1][col].previousCell = currentCell;
+      unvisitedCellsStack.unshift(grid[row - 1][col]);
+      currentCell.isVisited = true;
+    }
+
+    if (
+      // bottom
       row + 1 < grid.length &&
       !grid[row + 1][col].isWall &&
       !grid[row + 1][col].isVisited
@@ -54,22 +67,13 @@ export const DFS = (
     }
 
     if (
+      //left
       col - 1 >= 0 &&
       !grid[row][col - 1].isWall &&
       !grid[row][col - 1].isVisited
     ) {
       grid[row][col - 1].previousCell = currentCell;
       unvisitedCellsStack.unshift(grid[row][col - 1]);
-      currentCell.isVisited = true;
-    }
-
-    if (
-      row - 1 >= 0 &&
-      !grid[row - 1][col].isWall &&
-      !grid[row - 1][col].isVisited
-    ) {
-      grid[row - 1][col].previousCell = currentCell;
-      unvisitedCellsStack.unshift(grid[row - 1][col]);
       currentCell.isVisited = true;
     }
   }
